@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "AdminPage";
+}
+
+<div class="GoodsList">
+    <div class="List">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            @foreach(var i in Model)
+            {
+                <tr>
+                    <th>@i.Name</th>
+                    <th>@i.Price[0]</th>
+                    <th>@i.Count</th>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="header">
+        <div class="menu">
+            <ul class="menuList">
+                <li>@Html.ActionLink("Add item", "Index", "Admin")</li>
+                <li>@Html.ActionLink("Goods list", "GoodsList", "Admin")</li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Create new moderator", "NewModer", "Admin")</li>
+                }
+            </ul>
+        </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="footer">
+        
+    </footer>
+    <script src="~/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div id="wrap">
+    <div class="Login">
+        <div class="Fields">
+            @model LoginViewModel
+            <form method="POST" action="@Url.Action("Register", "Account")">
+                <div class="input-box">
+                    <input type="text" name="Username" class="LoginField" autocomplete="off" required />
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="Password" class="LoginField" autocomplete="off" required />
+                    <label>Password</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="ConfirmPassword" class="LoginField" autocomplete="off" required />
+                    <label>Confirm Password</label>
+                </div>
+                <input class="LoginBtn" type="submit" value="Sign up" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/bootstrap.min.js"></script>

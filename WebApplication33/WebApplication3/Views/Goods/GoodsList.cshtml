@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="list">
+    @foreach (var i in Model)
+    {
+        <div class="list_item">
+            <div class="item_img">
+                <img class="img" src="@i.ImageUrl" alt="@i.Name" />
+            </div>
+            <div id="item">
+                <h2>@i.Name</h2>
+                @Html.ActionLink($"{i.Description}", "CurrentItem", "Goods", new {name = i.Name})
+                <p>@i.Price.ToString()</p>
+                <a href="@Url.Action("CartAdd", "Goods", new {name = i.Name})">
+                    <img class="imgT" src="~/img/Group 3cart.png" alt="Add to cart" />
+                </a>
+            </div>
+        </div>
+    }
+</div>
+

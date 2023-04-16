@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "AdminPage";
+}
+
+<div class="AddItem">
+    <div class="Item">
+        @model AddItemViewModel
+        <form method="POST" action="@Url.Action("AddItem", "Admin")">
+            <ul>
+                <li>Product name                 <input type="text" name="Name" class="ItemInfo" /></li>
+                <li>Product description          <input type="text" name="Description" class="ItemInfo" /></li>
+                <li>Product image                <input type="text" name="ImageUrl" class="ItemInfo" /></li>
+                <li>Product price                <input type="text" name="Price" class="ItemInfo" /></li>
+                <li id="chk">Product in storage? @Html.CheckBoxFor(m => m.InStorage)</li>
+                <li>Product category             <input type="text" name="Category" class="ItemInfo" /></li>
+            </ul>
+            <input class="AddItemBtn" type="submit" value="Add product into DB" />
+        </form>
+    </div>
+</div>
+
+<script src="~/js/bootstrap.min.js"></script>
