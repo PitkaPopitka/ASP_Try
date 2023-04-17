@@ -50,46 +50,52 @@ namespace WebApplication3.Controllers
             }
             catch (Exception)
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             }
         }
 
         
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
         public IActionResult AddItem(AddItemViewModel model) 
         {
             try
             {
-                if (!User.IsInRole("Admin") || !User.IsInRole("Moderator"))
+                if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                 {
-                    return View("~/Views/Shared/AccessDeniedPage.cshtml");
+                    string ctgr = $"SELECT Id FROM Categories WHERE Name LIKE {model.Category}";
+                    var ctgrId = _gds.Categories.FromSqlRaw(ctgr).ToString();
+                    string ctgr2 = $"SELECT Name FROM Categories WHERE Name LIKE {model.Category}";
+                    var ctgrName = _gds.Categories.FirstOrDefault(c => c.Name == model.Category);
+                    if (ctgrId == null) 
+                    {
+                        var newCtgr = new Categories
+                        {
+                            Name = ctgr2
+                        };
+                    }
+                    var goods = new Goods
+                    {
+                        Name = model.Name,
+                        Description = model.Description,
+                        ImageUrl = model.ImageUrl,
+                        Price = model.Price,
+                        InStorage = model.InStorage,
+                        CategoryId = ctgrId[0],
+                        Category = ctgrName
+                    };
+                    if (goods == null)
+                    {
+                        return View("~/Views/Shared/AccessDeniedPage.cshtml");
+                    }
+                    _gds.Goods.Add(goods);
+                    _gds.SaveChanges();
+                    return View("~/Views/Admin/Index.cshtml");
                 }
-                string ctgr = $"SELECT Id FROM Categories WHERE Name = {model.Category}";
-                var ctgrId = _gds.Categories.FromSqlRaw(ctgr).ToString();
-                string ctgr2 = $"SELECT Name FROM Categories WHERE Name = {model.Category}";
-                var ctgrName = _gds.Categories.FirstOrDefault(c => c.Name == model.Category);
-                var goods = new Goods
-                {
-                    Name = model.Name,
-                    Description = model.Description,
-                    ImageUrl = model.ImageUrl,
-                    Price = model.Price,
-                    InStorage = model.InStorage,
-                    CategoryId = ctgrId[0],
-                    Category = ctgrName
-                };
-                if (goods == null)
-                {
-                    return View("~/Views/Shared/ExceptionPage.cshtml");
-                }
-                _gds.Goods.Add(goods);
-                _gds.SaveChanges();
-                return View("~/Views/Admin/Index.cshtml");
+                return View("~/Views/Shared/AccessDeniedPage.cshtml");
             }
             catch (Exception)
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             }
         }
 
@@ -110,7 +116,7 @@ namespace WebApplication3.Controllers
             }
             catch (Exception)
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             }
         }
 
@@ -149,7 +155,7 @@ namespace WebApplication3.Controllers
             }
             catch (Exception)
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             }
         }
     }

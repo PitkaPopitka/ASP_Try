@@ -78,12 +78,11 @@ namespace WebApplication3.Controllers
             }
             catch (Exception)
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             }
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             try
@@ -98,7 +97,7 @@ namespace WebApplication3.Controllers
             }
             catch (Exception)
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             } 
         }
     }

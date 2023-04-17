@@ -24,7 +24,7 @@ namespace WebApplication3.Controllers
             _gds = gds;
         }
 
-        public ViewResult GoodsList() 
+        public IActionResult GoodsList() 
         {
             try
             {
@@ -45,17 +45,17 @@ namespace WebApplication3.Controllers
             }
             catch (Exception)
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             }
         }
 
-        public ViewResult CurrentItem(string name) 
+        public IActionResult CurrentItem(string name) 
         {
             string query = $"SELECT * FROM Goods WHERE Name = '{name}' ";
             var currentGds = _gds.Goods.FromSqlRaw(query).ToList();
             if (currentGds.IsNullOrEmpty())
             {
-                return View("~/Views/Shared/ExceptionPage.cshtml");
+                return RedirectToAction("Exception", "Exception");
             }
             ViewBag.Title = currentGds[0].Name;
             return View(currentGds[0]);
