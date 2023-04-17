@@ -8,5 +8,10 @@ namespace WebApplication3.Controllers
         {
             return View();
         }
+
+        public IActionResult InProgress() 
+        {
+            return View();
+        }
     }
 }

@@ -51,20 +51,20 @@ namespace WebApplication3.Controllers
 
         public IActionResult CurrentItem(string name) 
         {
-            string query = $"SELECT * FROM Goods WHERE Name = '{name}' ";
+            /*string query = $"SELECT * FROM Goods WHERE Name = '{name}' ";
             var currentGds = _gds.Goods.FromSqlRaw(query).ToList();
             if (currentGds.IsNullOrEmpty())
             {
                 return RedirectToAction("Exception", "Exception");
             }
             ViewBag.Title = currentGds[0].Name;
-            return View(currentGds[0]);
+            return View(currentGds[0]);*/
+            return RedirectToAction("InProgress", "Exception");
         }
 
         public IActionResult CartAdd(string name) 
         {
-            var userId = User.FindFirstValue(ClaimTypes.Name);
-            return Content(userId);
+            return RedirectToAction("InProgress", "Exception");
         }
     }
 }
