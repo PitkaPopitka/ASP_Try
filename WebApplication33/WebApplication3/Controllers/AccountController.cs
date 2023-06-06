@@ -107,14 +107,14 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public async Task<IActionResult> MailSender(LoginViewModel model) 
         {
-            string mailBody = "password reset";
+            string mailBody = "email test";
             string senderEmail = "aspshopsender@mail.ru";
             string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("AspSender", senderEmail));
             message.To.Add(new MailboxAddress("Recipient", model.Email));
-            message.Subject = "password reset";
+            message.Subject = "email test";
 
             var builder = new BodyBuilder();
             builder.TextBody = mailBody;
