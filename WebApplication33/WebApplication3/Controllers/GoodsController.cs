@@ -39,7 +39,7 @@ namespace WebApplication3.Controllers
                 ViewBag.Title = "ASP shop";
                 if (gdsList.IsNullOrEmpty())
                 {
-                    return View("~/Views/Shared/ExceptionPage.cshtml");
+                    return RedirectToAction("Exception", "Exception");
                 }
                 return View(gdsList);
             }

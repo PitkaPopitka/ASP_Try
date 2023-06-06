@@ -14,6 +14,7 @@
                 <div class="input-box">
                     <input type="password" name="Password" class="LoginField" autocomplete="off" required />
                     <label>Password</label>
+                    @Html.ActionLink("Forgot password?", "SendMail", "Account")
                 </div>
                 <input class="LoginBtn" type="submit" value="Login" />
                 <p id="orSignUp">Or</p>

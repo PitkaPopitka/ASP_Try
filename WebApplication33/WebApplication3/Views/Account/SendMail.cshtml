@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model LoginViewModel
+<form method="post" action="@Url.Action("MailSender", "Account")">
+    <input type="text" name="Email" />
+    <input type="submit" value="send email" />
+</form>

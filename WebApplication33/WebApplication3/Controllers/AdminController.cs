@@ -36,7 +36,6 @@ namespace WebApplication3.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
-        //[Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             try
@@ -46,7 +45,7 @@ namespace WebApplication3.Controllers
                     ViewBag.Title = User.FindFirstValue(ClaimTypes.Role);
                     return View();
                 }
-                return View("~/Views/Shared/AccessDeniedPage.cshtml");
+                return RedirectToAction("AccessDenied", "Exception");
             }
             catch (Exception)
             {
@@ -85,13 +84,13 @@ namespace WebApplication3.Controllers
                     };
                     if (goods == null)
                     {
-                        return View("~/Views/Shared/AccessDeniedPage.cshtml");
+                        return RedirectToAction("AccessDenied", "Exception");
                     }
                     _gds.Goods.Add(goods);
                     _gds.SaveChanges();
                     return View("~/Views/Admin/Index.cshtml");
                 }
-                return View("~/Views/Shared/AccessDeniedPage.cshtml");
+                return RedirectToAction("AccessDenied", "Exception");
             }
             catch (Exception)
             {
@@ -112,7 +111,7 @@ namespace WebApplication3.Controllers
                     ViewBag.Title = "Goods List";
                     return View(lst.ToList());
                 }
-                return View("~/Views/Shared/AccessDeniedPage.cshtml");
+                return RedirectToAction("AccessDenied", "Exception");
             }
             catch (Exception)
             {
@@ -151,7 +150,7 @@ namespace WebApplication3.Controllers
                         return RedirectToAction("NewModer", "Admin");
                     }
                 }
-                return View("~/Views/Shared/AccessDeniedPage.cshtml");
+                return RedirectToAction("AccessDenied", "Exception");
             }
             catch (Exception)
             {

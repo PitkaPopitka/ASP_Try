@@ -7,6 +7,9 @@ using System.Security.Claims;
 using WebApplication3.DB_Settings;
 using WebApplication3.Models;
 using WebApplication3.ViewModels;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 
 namespace WebApplication3.Controllers
 {
@@ -99,6 +102,36 @@ namespace WebApplication3.Controllers
             {
                 return RedirectToAction("Exception", "Exception");
             } 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MailSender(LoginViewModel model) 
+        {
+            string mailBody = "password reset";
+            string senderEmail = "aspshopsender@mail.ru";
+            string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("AspSender", senderEmail));
+            message.To.Add(new MailboxAddress("Recipient", model.Email));
+            message.Subject = "password reset";
+
+            var builder = new BodyBuilder();
+            builder.TextBody = mailBody;
+            message.Body = builder.ToMessageBody();
+
+            var client = new SmtpClient();
+            client.Connect("smtp.mail.ru", 587, SecureSocketOptions.StartTls);
+            client.Authenticate(senderEmail, senderPassword);
+            client.Send(message);
+            client.Disconnect(true);
+
+            return RedirectToAction("SendMail", "Account");
+        }
+
+        public IActionResult SendMail() 
+        {
+            return View();
         }
     }
 }
