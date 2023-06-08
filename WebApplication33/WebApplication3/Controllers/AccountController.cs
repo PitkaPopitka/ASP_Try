@@ -63,7 +63,7 @@ namespace WebApplication3.Controllers
                 User user = await context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
                 if (user == null) 
                 {
-                    user = new User { Username = model.Username, Password = model.Password };
+                    user = new User { Username = model.Username, Password = model.Password, Email = model.Email };
                     Role userRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "User");
                     if (userRole != null) 
                     {
@@ -109,7 +109,7 @@ namespace WebApplication3.Controllers
         {
             try
             {
-                string mailBody = "email test";
+                string mailBody = "pidaraaaaaas";
                 string senderEmail = "aspshopsender@mail.ru";
                 string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
 
