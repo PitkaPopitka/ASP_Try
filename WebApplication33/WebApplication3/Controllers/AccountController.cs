@@ -107,26 +107,33 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public async Task<IActionResult> MailSender(LoginViewModel model) 
         {
-            string mailBody = "email test";
-            string senderEmail = "aspshopsender@mail.ru";
-            string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
+            try
+            {
+                string mailBody = "email test";
+                string senderEmail = "aspshopsender@mail.ru";
+                string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
 
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("AspSender", senderEmail));
-            message.To.Add(new MailboxAddress("Recipient", model.Email));
-            message.Subject = "email test";
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("AspSender", senderEmail));
+                message.To.Add(new MailboxAddress("Recipient", model.Email));
+                message.Subject = "email test";
 
-            var builder = new BodyBuilder();
-            builder.TextBody = mailBody;
-            message.Body = builder.ToMessageBody();
+                var builder = new BodyBuilder();
+                builder.TextBody = mailBody;
+                message.Body = builder.ToMessageBody();
 
-            var client = new SmtpClient();
-            client.Connect("smtp.mail.ru", 587, SecureSocketOptions.StartTls);
-            client.Authenticate(senderEmail, senderPassword);
-            client.Send(message);
-            client.Disconnect(true);
+                var client = new SmtpClient();
+                client.Connect("smtp.mail.ru", 587, SecureSocketOptions.StartTls);
+                client.Authenticate(senderEmail, senderPassword);
+                client.Send(message);
+                client.Disconnect(true);
 
-            return RedirectToAction("SendMail", "Account");
+                return RedirectToAction("SendMail", "Account");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Exception", "Exception");
+            }
         }
 
         public IActionResult SendMail() 
