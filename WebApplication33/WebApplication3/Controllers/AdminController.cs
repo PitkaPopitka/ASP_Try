@@ -134,7 +134,7 @@ namespace WebApplication3.Controllers
                     User user = await context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
                     if (user == null)
                     {
-                        user = new User { Username = model.Username, Password = model.Password };
+                        user = new User { Username = model.Username, Password = model.ConfirmPassword, Email = model.Email };
                         Role userRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "Moderator");
                         if (userRole != null)
                         {
