@@ -109,7 +109,7 @@ namespace WebApplication3.Controllers
         {
             try
             {
-                string mailBody = "pidaraaaaaas";
+                string mailBody = "test test test";
                 string senderEmail = "aspshopsender@mail.ru";
                 string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
 
