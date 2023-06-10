@@ -1,0 +1,382 @@
+html {
+  font-size: 14px;
+}
+
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #979797;
+}
+
+.footer{
+    background:#2f2f2f;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4%;
+    font-size: 90%;
+    text-align: center;
+}
+
+.footer p{
+    flex-flow: row nowrap;
+    display: flex;
+    justify-content: center;
+}
+
+.footer a{
+    padding: 8px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.27em;
+    text-decoration: none;
+    color: white;
+}
+
+.footer a:hover {
+    background: #417ba1;
+    border-radius: 8px;
+    transition: .5s;
+}
+
+.header {
+    background: #2f2f2f;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+    display: flex;
+}
+
+.menu{
+    flex-grow: 1;
+}
+
+.menuList{
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.menuList:last-child{
+    margin-right: 0;
+}
+
+.menuList a{
+    padding: 8px 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.menuList a:hover{
+    background: #417ba1;
+    border-radius: 8px;
+    transition: .5s;
+}
+
+.menuList .ul{
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 18px;
+    list-style: none;
+}
+
+.list{
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.list_item{
+    display: flex;
+    margin-bottom:50px;
+    width: 90%;
+    background: white;
+    border-radius: 8px;
+}
+
+.item_img{
+    width:250px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.item_img img{
+    width: 250px;
+}
+
+.imgT{
+    width: 70px;
+}
+
+#item{
+    padding-top: 25px;
+    margin-left: 20px;
+}
+
+#item a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+#item p{
+    margin-top: 20px;
+}
+
+#item a:hover{
+    color: #3592f6;
+    transition: .3s;
+}
+
+.text{
+    background: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+    border-radius: 5px;
+}
+
+.text p{
+    margin-left: 10px;
+}
+
+.AddItem{
+    float: left;
+}
+
+.AddItemBtn{
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.Item{
+    clear: both;
+    text-align: right;
+}
+
+.Item ul {
+    list-style: none;
+    float: left;
+}
+
+.Item li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Item input{
+    margin-right: 10px;
+}
+
+#chk{
+    text-align: left;
+}
+
+.ItemInfo{
+    border-radius:5px;
+}
+
+.List table{
+    background: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+
+}
+
+.List table, th, tr {
+    border: 1px solid black;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.AccessDenied{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#wrap{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.Login {
+    width: 400px;
+    position: relative;
+    height: 480px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Fields {
+    width: 100%;
+    padding: 40px;
+    margin-bottom: 100px;
+}
+
+.input-box {
+    width: 100%;
+    position: relative;
+    height: 40px;
+    border-bottom: 2px solid black;
+    margin-bottom: 30px;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 300;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    
+    top: -5px;
+}
+
+
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px 0px 10px;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.LoginBtn{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    font-size: 1em;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.LoginBtn:hover {
+    background: #2a3052;
+    color: white;
+    border: none;
+}
+
+.RegisterBtn{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-weight: 500;
+    height: 30px;
+    transition: .5s;
+}
+
+.RegisterBtn p{
+    padding-top: 3px;
+}
+
+#orSignUp{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.2em;
+    pointer-events: none;
+}
+
+.RegisterBtn:hover {
+    background: #2a3052;
+    color: white;
+    border: none;
+}
+
+.InProgress{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.InProgress div{
+    background: white;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .header {
+        font-size: 10px;
+    }
+
+    .AddItemBtn {
+        display: flex;
+        margin-left: 30px;
+    }
+
+    .list {
+        margin-left: 40px;
+    }
+
+    #item a {
+        font-size: 16px;
+    }
+
+    .imgT {
+        width: 50px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .item_img img{
+        width: 185px;
+    }
+}
+
+.menuList a,
+.menuList .active{
+    display: block;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.27em;
+}
+
+.menuList .active{
+    background: #42b9e0;
+    border-radius: 8px;
+}
+

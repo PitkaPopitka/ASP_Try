@@ -2,8 +2,17 @@
     Layout = "_Layout";
 }
 
-@model LoginViewModel
-<form method="post" action="@Url.Action("MailSender", "Account")">
-    <input type="text" name="Email" />
-    <input type="submit" value="send email" />
-</form>
+<div id="wrap">
+    <div class="Login">
+        <div class="Fields">
+            @model LoginViewModel
+            <form method="post" action="@Url.Action("MailSender", "Account")">
+                <div class="input-box">
+                    <input type="text" name="Email" class="LoginField" required />
+                    <label>Email</label>
+                </div>
+                <input class="LoginBtn" type="submit" value="Send email" />
+            </form>
+        </div>
+    </div>
+</div>
