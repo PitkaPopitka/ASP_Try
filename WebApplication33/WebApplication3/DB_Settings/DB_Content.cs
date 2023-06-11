@@ -9,8 +9,6 @@ namespace WebApplication3.DB_Settings
         public DbSet<Goods> Goods { get; set; }
         public DbSet<Categories> Categories { get; set; }
 
-        public DbSet<Admins> Admins { get; set; }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Order> Orders { get; set; }

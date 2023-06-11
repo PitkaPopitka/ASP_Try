@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4jwlTIbjBOdbomLo1BrlWxe6h2RuVHjIIO5dlEhujsY=",
+  "Hash": "UXMR4oFWqcpJ0IBnPv3tZ5wJUxVswDdhqrGyPClEs1o=",
   "Source": "WebApplication3",
   "BasePath": "_content/WebApplication3",
   "Mode": "Default",
@@ -16,40 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\Debug\\net6.0\\scopedcss\\bundle\\WebApplication3.styles.css",
-      "SourceId": "WebApplication3",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/WebApplication3",
-      "RelativePath": "WebApplication3.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\Debug\\net6.0\\scopedcss\\bundle\\WebApplication3.styles.css"
-    },
-    {
-      "Identity": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WebApplication3.bundle.scp.css",
-      "SourceId": "WebApplication3",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/WebApplication3",
-      "RelativePath": "WebApplication3.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WebApplication3.bundle.scp.css"
-    },
     {
       "Identity": "E:\\projects\\WebApplication33\\WebApplication3\\wwwroot\\css\\bootstrap.min.css",
       "SourceId": "WebApplication3",

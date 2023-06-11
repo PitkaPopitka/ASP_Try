@@ -59,9 +59,7 @@ E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\staticwebassets\ms
 E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\staticwebassets.pack.json
 E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\staticwebassets.build.json
 E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\staticwebassets.development.json
-E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\scopedcss\bundle\WebApplication3.styles.css
-E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\scopedcss\projectbundle\WebApplication3.bundle.scp.css
 E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\WebApplication3.csproj.CopyComplete
 E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\WebApplication3.dll
 E:\projects\WebApplication33\WebApplication3\obj\Debug\net6.0\refint\WebApplication3.dll

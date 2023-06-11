@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WebApplication3.bundle.scp.css",
-      "PackagePath": "staticwebassets\\WebApplication3.bundle.scp.css"
-    },
-    {
       "Id": "E:\\projects\\WebApplication33\\WebApplication3\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
