@@ -125,7 +125,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddModer(LoginViewModel model) 
+        public async Task<IActionResult> AddModer(RegisterViewModel model) 
         {
             try
             {

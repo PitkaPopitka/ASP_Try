@@ -38,7 +38,8 @@ namespace WebApplication3.Controllers
             var claims = new List<Claim> 
             { 
                 new Claim(ClaimsIdentity.DefaultNameClaimType, user.Username),
-                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Role.Name)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Role.Name),
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email)
             };
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultNameClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
@@ -56,7 +57,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(LoginViewModel model) 
+        public async Task<IActionResult> Register(RegisterViewModel model) 
         {
             try
             {
@@ -105,7 +106,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MailSender(LoginViewModel model) 
+        public async Task<IActionResult> MailSender(RegisterViewModel model) 
         {
             try
             {

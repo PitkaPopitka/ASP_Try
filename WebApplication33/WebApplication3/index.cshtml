@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="header">
+        <div class="menu">
+            <ul class="menuList">
+                <li>@Html.ActionLink("Catalog", "GoodsList", "Goods")</li>
+                <li>@Html.ActionLink("About us", "AboutIndex", "About")</li>
+                <li>@Html.ActionLink("Club", "ClubIndex", "Club")</li>
+                @if (User.IsInRole("User") || User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                {
+                    <li>@Html.ActionLink("Sign out", "SignOut", "Account")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Login", "LoginPage", "Account")</li>
+                }
+                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                {
+                    <li>@Html.ActionLink("Admin page", "Index", "Admin")</li>
+                }
+            </ul>
+        </div>
+    </header>
+    <div> 
+        @RenderBody()
+    </div>
+    <footer class="footer">
+        <p>@Html.ActionLink("Privacy", "PrivacyIndex", "Privacy")</p>
+    </footer>
+    <script src="~/js/bootstrap.min.js"></script>
+</body>
+</html>
