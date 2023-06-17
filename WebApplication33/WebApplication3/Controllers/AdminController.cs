@@ -142,7 +142,6 @@ namespace WebApplication3.Controllers
                         }
                         context.Users.Add(user);
                         await context.SaveChangesAsync();
-                        await Authenticate(user);
                         return RedirectToAction("NewModer", "Admin");
                     }
                     else
