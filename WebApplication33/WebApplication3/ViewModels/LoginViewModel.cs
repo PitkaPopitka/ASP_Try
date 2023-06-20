@@ -9,5 +9,7 @@ namespace WebApplication3.ViewModels
 
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
+
+        public string Email { get; set; }
     }
 }

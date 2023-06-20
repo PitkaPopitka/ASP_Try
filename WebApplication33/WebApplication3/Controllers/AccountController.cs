@@ -38,8 +38,7 @@ namespace WebApplication3.Controllers
             var claims = new List<Claim> 
             { 
                 new Claim(ClaimsIdentity.DefaultNameClaimType, user.Username),
-                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Role.Name),
-                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Role.Name)
             };
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultNameClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
@@ -57,14 +56,14 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model) 
+        public async Task<IActionResult> Register(LoginViewModel model) 
         {
             try
             {
                 User user = await context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
                 if (user == null) 
                 {
-                    user = new User { Username = model.Username, Password = model.Password, Email = model.Email };
+                    user = new User { Username = model.Username, Password = model.Password };
                     Role userRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "User");
                     if (userRole != null) 
                     {
@@ -106,35 +105,28 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MailSender(RegisterViewModel model) 
+        public async Task<IActionResult> MailSender(LoginViewModel model) 
         {
-            try
-            {
-                string mailBody = "test test test";
-                string senderEmail = "aspshopsender@mail.ru";
-                string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
+            string mailBody = "password reset";
 
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("AspSender", senderEmail));
-                message.To.Add(new MailboxAddress("Recipient", model.Email));
-                message.Subject = "email test";
+            string senderEmail = "aspshopsender@mail.ru";
+            string senderPassword = "yrNTpdns6sXVfkjy5BJ2";
 
-                var builder = new BodyBuilder();
-                builder.TextBody = mailBody;
-                message.Body = builder.ToMessageBody();
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Sender", senderEmail));
+            message.To.Add(new MailboxAddress("Recipient", model.Email));
+            message.Subject = "password reset";
+            var builder = new BodyBuilder();
+            builder.TextBody = mailBody;
+            message.Body = builder.ToMessageBody();
 
-                var client = new SmtpClient();
-                client.Connect("smtp.mail.ru", 587, SecureSocketOptions.StartTls);
-                client.Authenticate(senderEmail, senderPassword);
-                client.Send(message);
-                client.Disconnect(true);
+            var client = new SmtpClient();
+            client.Connect("smtp.mail.ru", 587, SecureSocketOptions.StartTls);
+            client.Authenticate(senderEmail, senderPassword);
+            client.Send(message);
+            client.Disconnect(true);
 
-                return RedirectToAction("SendMail", "Account");
-            }
-            catch (Exception)
-            {
-                return RedirectToAction("Exception", "Exception");
-            }
+            return RedirectToAction("SendMail", "Account");
         }
 
         public IActionResult SendMail() 

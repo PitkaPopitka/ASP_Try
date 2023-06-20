@@ -5,15 +5,11 @@
 <div id="wrap">
     <div class="Login">
         <div class="Fields">
-            @model RegisterViewModel
+            @model LoginViewModel
             <form method="POST" action="@Url.Action("Register", "Account")">
                 <div class="input-box">
                     <input type="text" name="Username" class="LoginField" autocomplete="off" required />
                     <label>Username</label>
-                </div>
-                <div class="input-box">
-                    <input type="text" name="Email" class="LoginField" required />
-                    <label>Email</label>
                 </div>
                 <div class="input-box">
                     <input type="password" name="Password" class="LoginField" autocomplete="off" required />

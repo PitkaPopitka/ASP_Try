@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\projects\\WebApplication33\\WebApplication3\\WebApplication3.csproj": {}
+    "E:\\cod\\WebApplication33\\WebApplication3\\WebApplication3.csproj": {}
   },
   "projects": {
-    "E:\\projects\\WebApplication33\\WebApplication3\\WebApplication3.csproj": {
+    "E:\\cod\\WebApplication33\\WebApplication3\\WebApplication3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\WebApplication33\\WebApplication3\\WebApplication3.csproj",
+        "projectUniqueName": "E:\\cod\\WebApplication33\\WebApplication3\\WebApplication3.csproj",
         "projectName": "WebApplication3",
-        "projectPath": "E:\\projects\\WebApplication33\\WebApplication3\\WebApplication3.csproj",
+        "projectPath": "E:\\cod\\WebApplication33\\WebApplication3\\WebApplication3.csproj",
         "packagesPath": "C:\\Users\\yurik\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\WebApplication33\\WebApplication3\\obj\\",
+        "outputPath": "E:\\cod\\WebApplication33\\WebApplication3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

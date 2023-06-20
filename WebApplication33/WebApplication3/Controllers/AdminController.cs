@@ -36,6 +36,7 @@ namespace WebApplication3.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
+        //[Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             try
@@ -45,7 +46,7 @@ namespace WebApplication3.Controllers
                     ViewBag.Title = User.FindFirstValue(ClaimTypes.Role);
                     return View();
                 }
-                return RedirectToAction("AccessDenied", "Exception");
+                return View("~/Views/Shared/AccessDeniedPage.cshtml");
             }
             catch (Exception)
             {
@@ -84,7 +85,7 @@ namespace WebApplication3.Controllers
                     };
                     if (goods == null)
                     {
-                        return RedirectToAction("AccessDenied", "Exception");
+                        return View("~/Views/Shared/AccessDeniedPage.cshtml");
                     }
                     _gds.Goods.Add(goods);
                     _gds.SaveChanges();
@@ -125,7 +126,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddModer(RegisterViewModel model) 
+        public async Task<IActionResult> AddModer(LoginViewModel model) 
         {
             try
             {
@@ -134,7 +135,7 @@ namespace WebApplication3.Controllers
                     User user = await context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
                     if (user == null)
                     {
-                        user = new User { Username = model.Username, Password = model.ConfirmPassword, Email = model.Email };
+                        user = new User { Username = model.Username, Password = model.Password };
                         Role userRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "Moderator");
                         if (userRole != null)
                         {
@@ -142,6 +143,7 @@ namespace WebApplication3.Controllers
                         }
                         context.Users.Add(user);
                         await context.SaveChangesAsync();
+                        await Authenticate(user);
                         return RedirectToAction("NewModer", "Admin");
                     }
                     else

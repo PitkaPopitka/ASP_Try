@@ -59,7 +59,7 @@ body {
     flex-grow: 1;
 }
 
-.menuList {
+.menuList{
     display: flex;
     flex-flow: row nowrap;
     margin: 0;
@@ -72,11 +72,10 @@ body {
     margin-right: 0;
 }
 
-.menuList a {
+.menuList a{
     padding: 8px 10px;
     color: white;
     text-decoration: none;
-    transition: .5s;
 }
 
 .menuList a:hover{
@@ -127,11 +126,10 @@ body {
     margin-left: 20px;
 }
 
-#item a {
+#item a{
     text-decoration: none;
     color: black;
     font-size: 20px;
-    transition: .5s;
 }
 
 #item p{
@@ -220,7 +218,7 @@ body {
 .Login {
     width: 400px;
     position: relative;
-    height: 480px;
+    height: 440px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
@@ -370,14 +368,14 @@ body {
 }
 
 .menuList a,
-.menuList .active {
+.menuList .active{
     display: block;
     padding: 8px 10px;
     text-transform: uppercase;
     letter-spacing: 0.27em;
 }
 
-.menuList .active {
+.menuList .active{
     background: #42b9e0;
     border-radius: 8px;
 }
