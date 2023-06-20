@@ -66,12 +66,14 @@ namespace WebApplication3.Controllers
                     var ctgrId = _gds.Categories.FromSqlRaw(ctgr).ToString();
                     string ctgr2 = $"SELECT Name FROM Categories WHERE Name LIKE {model.Category}";
                     var ctgrName = _gds.Categories.FirstOrDefault(c => c.Name == model.Category);
-                    if (ctgrId == null) 
+                    if (ctgrName == null) 
                     {
                         var newCtgr = new Categories
                         {
-                            Name = ctgr2
+                            Name = model.Category
                         };
+                        _gds.Categories.Add(newCtgr);
+                        _gds.SaveChanges();
                     }
                     var goods = new Goods
                     {
@@ -143,7 +145,6 @@ namespace WebApplication3.Controllers
                         }
                         context.Users.Add(user);
                         await context.SaveChangesAsync();
-                        await Authenticate(user);
                         return RedirectToAction("NewModer", "Admin");
                     }
                     else
